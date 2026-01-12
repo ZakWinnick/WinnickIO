@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Zak Winnick</title>
+    <meta charset="utf-8">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Zak Winnick">
+    <meta property="og:description" content="The Digital Home of Zak Winnick">
+    <meta name="viewport" content="width=device-width">
+    <link rel="icon" href="/favicon.ico">
+    <!-- Replace external Font Awesome with CDN version -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://tinylytics.app/embed/2qbxxYNdr25dd_d4xNAC.js" defer></script>
+    <style>
+      /* Base styles */
+      :root {
+        --background-color: #282c37;
+        --text-color: #fff;
+        --link-color: #8c8dff;
+        --accent-color: #6364ff;
+      }
+
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+        background-color: var(--background-color);
+        color: var(--text-color);
+        line-height: 1.6;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+      }
+
+      main {
+        max-width: 1200px;
+        width: 90%;
+        margin: 40px auto;
+        padding: 60px;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 24px;
+        box-shadow: 0 4px 24px rgba(0, 0, 0, 0.1);
+      }
+
+      /* Profile styles */
+      #profile-picture-container {
+        text-align: center;
+        margin-bottom: 20px;
+      }
+
+      #profile-picture {
+        width: 300px;
+        height: 300px;
+        border-radius: 150px;
+        border: 6px solid var(--accent-color);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        transition: transform 0.3s ease;
+        object-fit: cover;  /* Prevents image distortion */
+      }
+
+      #profile-picture:hover {
+        transform: scale(1.05);
+      }
+
+      h1 {
+        text-align: center;
+        margin: 35px 0;
+        font-size: 48px;
+        letter-spacing: 0.5px;
+        font-weight: 600;
+      }
+
+      .metadata {
+        text-align: center;
+        margin-bottom: 15px;
+        color: rgba(255, 255, 255, 0.8);
+        font-size: 24px;
+      }
+
+      /* Links section */
+      #profile-items {
+        margin-top: 40px;
+        padding: 0 20px;
+      }
+
+      /* Desktop-only centering for referral link */
+      @media (min-width: 769px) {
+        #profile-items > ul:first-of-type {
+          width: fit-content;
+          margin: 0 auto;
+        }
+      }
+
+      h2 {
+        font-size: 36px;
+        margin: 40px 0 25px;
+        color: var(--accent-color);
+        border-bottom: 3px solid rgba(255, 255, 255, 0.1);
+        padding-bottom: 15px;
+      }
+
+      .fa-ul {
+        margin-left: 30px;
+        list-style-type: none;
+        padding: 0;
+      }
+
+      .fa-ul li {
+        margin-bottom: 20px;
+        font-size: 22px;
+      }
+
+      .fa-li {
+        left: -2em;
+        position: absolute;
+        text-align: center;
+        width: 2em;
+        line-height: inherit;
+      }
+
+      a {
+        color: var(--link-color);
+        text-decoration: none;
+        transition: color 0.2s ease;
+      }
+
+      a:hover {
+        color: var(--accent-color);
+      }
+
+      #footer {
+        text-align: center;
+        margin-top: 30px;
+        padding-top: 20px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      #footer .fa-plug {
+        transform: rotate(0deg);
+        transition: all 0.3s ease;
+      }
+
+      #footer:hover .fa-plug {
+        transform: rotate(90deg);
+        transition: all 0.3s ease;
+      }
+
+      /* Responsive design */
+      @media (max-width: 1300px) {
+        main {
+          max-width: 90%;
+          padding: 40px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        body {
+          padding: 0;
+        }
+        
+        main {
+          width: 100%;
+          margin: 0;
+          padding: 40px 20px;
+          border-radius: 0;
+          min-height: 100vh;
+        }
+
+        #profile-picture-container {
+          margin-top: 20px;
+        }
+
+        #profile-picture {
+          width: 200px;
+          height: 200px;
+          border-radius: 100px;
+          border-width: 4px;
+        }
+
+        h1 {
+          font-size: 36px;
+          margin: 25px 0;
+        }
+
+        .metadata {
+          font-size: 18px;
+        }
+
+        h2 {
+          font-size: 28px;
+          margin: 30px 0 20px;
+        }
+
+        .fa-ul li {
+          font-size: 18px;
+          margin-bottom: 15px;
+        }
+
+        #profile-items {
+          padding: 0 10px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        main {
+          padding: 20px 15px;
+        }
+
+        #profile-picture {
+          width: 150px;
+          height: 150px;
+          border-radius: 75px;
+        }
+
+        h1 {
+          font-size: 28px;
+        }
+
+        .metadata {
+          font-size: 16px;
+        }
+
+        h2 {
+          font-size: 24px;
+        }
+
+        .fa-ul li {
+          font-size: 16px;
+          margin-bottom: 12px;
+        }
+
+        .fa-ul {
+          margin-left: 25px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="h-card">
+      <div id="profile-picture-container">
+        <img class="u-photo" alt="zak" id="profile-picture" src="/images/profile.jpg">
+      </div>
+      <h1 class="p-name" id="name">
+        Zak Winnick
+      </h1>
+      <div class="metadata p-job-title" id="occupation">
+        <i class="fa-solid fa-fw fa-briefcase"></i> IT @ <a class="u-url" rel="me" target="_blank" href="https://curaihealth.com">Curai</a>
+      </div>
+      <div class="metadata p-region" id="location">
+        <i class="fa-solid fa-fw fa-location-dot"></i> Napa, CA
+      </div>
+      <div id="profile-items">
+        <ul class="fa-ul">
+          <li>
+            <span class="fa-li"><i class="fa-solid fa-link"></i></span><a class="u-url" rel="me" target="_blank" href="https://zak.codetoadventure.com">Rivian Referral -$750 off a new R1 and 6mo Free Charging!</a>
+          </li>
+        </ul>
+        <h2>links</h2>
+        <ul class="fa-ul">
+          <li>
+            <span class="fa-li"><i class="fa-solid fa-blog"></i></span><a class="u-url" rel="me" target="_blank" href="https://zakwinnick.com">blog</a>
+          </li>
+          <li>
+            <span class="fa-li"><i class="fa-solid fa-cloud"></i></span><a class="u-url" rel="me" target="_blank" href="https://bsky.app/profile/zakwinnick.com">bluesky</a>
+          </li>
+          <li>
+            <span class="fa-li"><i class="fa-brands fa-github"></i></span><a class="u-url" rel="me" target="_blank" href="https://github.com/zakwinnick">github</a>
+          </li>
+          <li>
+            <span class="fa-li"><i class="fa-brands fa-instagram"></i></span><a class="u-url" rel="me" target="_blank" href="https://instagram.com/zakwinnick">instagram</a>
+          </li>
+          <li>
+            <span class="fa-li"><i class="fa-brands fa-linkedin"></i></span><a class="u-url" rel="me" target="_blank" href="https://linkedin.com/in/zakwinnick">linkedin</a>
+          </li>
+          <li>
+            <span class="fa-li"><i class="fa-brands fa-x-twitter"></i></span><a class="u-url" rel="me" target="_blank" href="https://x.com/zakwinnick">tweets</a>
+          </li>
+          <li>
+            <span class="fa-li"><i class="fa-brands fa-youtube"></i></span><a class="u-url" rel="me" target="_blank" href="https://youtube.com/@wyldwattage">youtube</a>
+          </li>
+        </ul>
+      </div>
+      <div id="footer">
+        <i class="fa-solid fa-fw fa-code"></i> Self-hosted with ♥
+      </div>
+    </main>
+  </body>
+</html>
