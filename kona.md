@@ -39,7 +39,7 @@
 
 ## Day 3 — Tuesday, May 19: Volcanoes + Mauna Kea
 
-- **Morning** — Drive to Hawai'i Volcanoes National Park (\~2.5 hrs from Kona side)
+- **Morning** — Drive to Hawai'i Volcanoes National Park (~2.5 hrs via Hwy 11)
 - Crater Rim Drive, Kīlauea Overlook, Thurston Lava Tube (easy walks)
 - **Lunch** — _*TBD*_
 - **Afternoon** — Drive up to Mauna Kea
@@ -69,11 +69,12 @@
 
 Stay local, mellow day
 
-- **Morning** — Sleep in, leisurely breakfast
-- **\~10:15 AM** — Head to Kona Sea Salt
-- **11:00 AM** — Kona Sea Salt farm tour (they do tastings!)
-- **\~12:30 PM** — Drive to Hala Tree Coffee (\~45 min)
-- **2:00 PM** — Hala Tree Coffee tour (runs hourly)
+- **~8:15 AM** — Head to Kona Sea Salt
+- **9:00 AM** — Kona Sea Salt farm tour
+- **~10:30 AM** — Drive to Hala Tree Coffee (~45 min)
+- **12:00 PM** — Hala Tree Coffee tour (runs hourly)
+- **~1:30 PM** — Drive to Ka Lae / South Point (~1 hr)
+- **Ka Lae (South Point)** — Southernmost point in the US
 - **Late Afternoon** — Back to resort
 - **Dinner** — _*TBD*_
 
