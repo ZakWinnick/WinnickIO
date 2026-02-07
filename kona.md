@@ -92,9 +92,9 @@
 |:--|:--|
 | ~8:15 AM | Head to Kona Sea Salt |
 | 9:00 AM | Kona Sea Salt farm tour |
-| ~10:30 AM | Drive to Hala Tree Coffee (~45 min) |
-| 12:00 PM | Hala Tree Coffee tour |
-| ~1:30 PM | Drive to Ka Lae / South Point (~1 hr) |
+| ~10:30 AM | Drive to Mauka Meadows Coffee Farm (~25 min) |
+| 11:30 PM | Hala Tree Coffee tour |
+| ~1:00 PM | Drive to Ka Lae / South Point (~1 hr) |
 | Afternoon | Ka Lae — Southernmost point in the US 🇺🇸 |
 | Late Afternoon | Back to resort |
 | Dinner | *TBD* |
