@@ -120,3 +120,4 @@
 - **Mauna Kea:** Bring layers — summit is ~30°F even in May
 - **Hawaiian Vanilla Company:** Book tour ahead (10:45 AM or 1:15 PM)
 - **49 Black Sand Beach:** Gets to capacity early — go first thing
+- **Makua Meadows Coffee Farm:** Same-day reservations only - Call Thursday AM - 808.322.3636
