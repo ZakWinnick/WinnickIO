@@ -76,7 +76,8 @@
 | | Akaka Falls — easy walk, stunning waterfall |
 | | Rainbow Falls *(Hilo)* — quick stop |
 | Lunch | Suisan Fish Market *(Hilo)* |
-| Afternoon | Mauna Loa Macadamia Nut Factory |
+| Afternoon | Kaumana Falls *(Hilo)* |
+| | Mauna Loa Macadamia Nut Factory |
 | | Drive back via Saddle Road |
 | Evening | Dinner |
 
