@@ -375,23 +375,87 @@
         color: var(--text-tertiary);
       }
 
+      /* Mobile footer (shown only ≤900px) */
+      .mobile-footer { display: none; }
+      .mobile-socials {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      .mobile-socials a {
+        width: 40px;
+        height: 40px;
+        border-radius: 10px;
+        background: var(--bg-card);
+        border: 1px solid var(--border);
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--text-secondary);
+        text-decoration: none;
+        font-size: 1rem;
+        transition: all 0.2s ease;
+      }
+      .mobile-socials a:hover {
+        color: var(--accent);
+        border-color: var(--accent);
+        transform: translateY(-2px);
+      }
+      .mobile-footer-note {
+        text-align: center;
+        font-size: 0.8rem;
+        color: var(--text-tertiary);
+        margin-top: 18px;
+      }
+
       /* Responsive */
       @media (max-width: 900px) {
         .layout { grid-template-columns: 1fr; }
         .sidebar {
           position: static;
           height: auto;
-          padding: 40px 32px;
+          padding: 28px 24px;
           border-right: none;
           border-bottom: 1px solid var(--border);
+          display: grid;
+          grid-template-columns: auto 1fr;
+          grid-template-areas: "photo identity";
+          gap: 18px;
+          align-items: center;
         }
-        .content { padding: 48px 32px 72px; }
+        .sb-photo {
+          grid-area: photo;
+          width: 72px;
+          height: 72px;
+          margin-bottom: 0;
+          border-width: 2px;
+        }
+        .sb-identity { grid-area: identity; }
+        .sb-name { font-size: 1.5rem; margin: 0 0 6px; }
+        .sb-meta { margin: 0; font-size: 0.82rem; }
+        .sb-meta div { margin-bottom: 2px; }
+        .sb-meta i { width: 11px; font-size: 0.72rem; }
+        .sb-nav { display: none; }
+        .sb-socials { display: none; }
+        .content { padding: 40px 24px 32px; }
+        article + article { margin-top: 48px; padding-top: 48px; }
+        .mobile-footer {
+          display: block;
+          background: var(--bg-sidebar);
+          padding: 28px 24px 36px;
+          border-top: 1px solid var(--border);
+        }
       }
 
       @media (max-width: 540px) {
-        .content { padding: 40px 24px 64px; }
-        .h2 { font-size: 1.8rem; }
-        .lede { font-size: 1.2rem; }
+        .sidebar { padding: 24px 20px; gap: 14px; }
+        .sb-photo { width: 64px; height: 64px; }
+        .sb-name { font-size: 1.35rem; }
+        .sb-meta { font-size: 0.78rem; }
+        .content { padding: 32px 20px 28px; }
+        .h2 { font-size: 1.7rem; }
+        .lede { font-size: 1.15rem; }
         .venture {
           grid-template-columns: 1fr;
           gap: 8px;
@@ -405,17 +469,18 @@
     <div class="layout">
       <aside class="sidebar">
         <img class="sb-photo" src="images/profile-bw.jpg" alt="Zak Winnick">
-        <h1 class="sb-name">Zak Winnick</h1>
-
-        <div class="sb-meta">
-          <div><i class="fa-solid fa-briefcase"></i>Founder &amp; CEO, Rangeway</div>
-          <div><i class="fa-solid fa-location-dot"></i>Napa, CA</div>
-          <div><i class="fa-solid fa-envelope"></i><a href="mailto:zak@winnick.io">zak@winnick.io</a></div>
+        <div class="sb-identity">
+          <h1 class="sb-name">Zak Winnick</h1>
+          <div class="sb-meta">
+            <div><i class="fa-solid fa-briefcase"></i>Founder &amp; CEO, Rangeway</div>
+            <div><i class="fa-solid fa-location-dot"></i>Napa, CA</div>
+            <div><i class="fa-solid fa-envelope"></i><a href="mailto:zak@winnick.io">zak@winnick.io</a></div>
+          </div>
         </div>
 
         <ul class="sb-nav">
           <li><a href="#about">About</a></li>
-          <li><a href="#blog">Blog</a></li>
+          <li><a href="https://zakwinnick.com" target="_blank" rel="noopener noreferrer">Blog</a></li>
           <li><a href="#currently">Currently</a></li>
           <li><a href="#experience">Experience</a></li>
           <li><a href="#credentials">Skills &amp; Certifications</a></li>
@@ -425,10 +490,9 @@
         <div class="sb-socials">
           <a href="https://linkedin.com/in/zakwinnick" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
           <a href="https://x.com/zakwinnick" target="_blank" rel="noopener noreferrer" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
-          <a href="https://github.com/zakwinnick" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
           <a href="https://instagram.com/wyldwattage" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
           <a href="https://youtube.com/@wyldwattage" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
-          <a href="https://zakwinnick.com" target="_blank" rel="noopener noreferrer" aria-label="Blog"><i class="fa-solid fa-pen-nib"></i></a>
+          <a href="https://github.com/zakwinnick" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
         </div>
       </aside>
 
@@ -460,19 +524,6 @@
               charging pain points. My goal is simple: <em>transform EV charging from a logistics
               burden into an integral, enjoyable part of the journey.</em>
             </p>
-          </div>
-        </article>
-
-        <article id="blog" class="blog-callout">
-          <div class="eyebrow">Writing</div>
-          <h2 class="h2">More on the blog.</h2>
-          <p class="lede">
-            Longer-form notes on EV infrastructure, hospitality, and whatever else is on my mind.
-          </p>
-          <div class="contact-row">
-            <a href="https://zakwinnick.com" target="_blank" rel="noopener noreferrer" class="contact-btn primary">
-              <i class="fa-solid fa-pen-nib"></i> zakwinnick.com
-            </a>
           </div>
         </article>
 
@@ -660,6 +711,18 @@
           &copy; 2026 Zak Winnick · Self-hosted with love
         </footer>
       </main>
+    </div>
+
+    <!-- Mobile-only socials footer (hidden on desktop) -->
+    <div class="mobile-footer">
+      <div class="mobile-socials">
+        <a href="https://linkedin.com/in/zakwinnick" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+        <a href="https://x.com/zakwinnick" target="_blank" rel="noopener noreferrer" aria-label="X"><i class="fa-brands fa-x-twitter"></i></a>
+        <a href="https://instagram.com/wyldwattage" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://youtube.com/@wyldwattage" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        <a href="https://github.com/zakwinnick" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+      </div>
+      <p class="mobile-footer-note">&copy; 2026 Zak Winnick</p>
     </div>
 
   </body>
