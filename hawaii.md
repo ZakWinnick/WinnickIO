@@ -39,7 +39,10 @@
 | ~10:00 AM | Drive to **49 Black Sand Beach** at Mauna Lani (~10 min) — stop at the guard shack for a beach pass |
 | ~12:30 PM | **Shops at Mauna Lani** — browse, lunch or a drink |
 | ~2:30 PM | Back to the resort — pool, beach, decompress |
-| Dinner | At the resort — **Moana** or **Shipwreck Bar** |
+| ~5:00 PM | Leave resort for Kailua-Kona town (~30 min) |
+| ~5:30 PM | Walk **Ali‘i Drive** — Hulihee Palace, Mokuaikaua Church, Kailua Pier, shops; sunset ~6:55 |
+| **7:00 PM** | Dinner at **Kona Brewing Company** — Kailua-Kona pub |
+| ~9:00 PM | Drive back to resort (~30 min) |
 
 ---
 
@@ -51,7 +54,7 @@
 |:--|:--|
 | 9:00 AM | **Kona Sea Salt** farm tour + mineral water soak — Kawaihae |
 | ~10:30 AM | Wrap up at salt farm, drive to Captain Cook (~1 hr) |
-| 11:30 AM | **Greenwell Farms** coffee tour — free walk-in |
+| 11:30 AM | **Greenwell Farms** coffee tour — free, walk-in |
 | ~12:30 PM | Lunch in Captain Cook + **Kealakekua Bay / Captain Cook Monument** lookout |
 | ~2:30 PM | Drive back to resort (~45 min) — rest, change |
 | ~4:45 PM | Leave for **Mauna Kea Beach Hotel** (~30 min) |
@@ -76,7 +79,7 @@
 | After dark | Stargazing at the Visitor Center |
 | Late | Drive back to resort (~1.5 hrs) |
 
-> 🥶 **Heads up:** Bring warm layers — drops into the 40s at the Visitor Center after dark. Fill up on gas in Hilo before heading up Saddle Road.
+> 🧥 **Heads up:** Bring warm layers — drops into the 40s at the Visitor Center after dark. Fill up on gas in Hilo before heading up Saddle Road.
 
 ---
 
@@ -86,7 +89,7 @@
 
 | Time | Activity |
 |:--|:--|
-| Morning | Slow morning at the resort |
+| Morning | Slow morning at the resort — breakfast, pool, beach |
 | ~12:15 PM | Leave resort for the south side via Hwy 11 |
 | ~1:45 PM | **South Point (Ka Lae)** — southernmost point in the US; cliff jumpers, wind-bent trees (~30 min) |
 | ~2:55 PM | Back on Hwy 11, continue to Volcanoes (~1 hr 15 min) |
@@ -115,8 +118,9 @@
 
 ---
 
-## 📝 Reference
+## 📝 Notes
 
 - **49 Black Sand Beach** — Kohala Coast black-sand beach inside the Mauna Lani resort. Stop at the guard shack for a beach pass (limited; go early). *Not the same as Waialea Bay / Beach 69, which is white sand.*
 - **Mauna Kea Visitor Center** — Sits at 9,200 ft, accessible by any rental car. Rental car companies prohibit driving above the VIS; the road past that point is unpaved and not insured. Bring layers (40s°F after dark).
-- **Car** — Hertz Jeep Compass AWD (no 4x4 — VIS only, not summit).
+- **Greenwell Farms** — Free coffee tour, walk-in only. Tours run on the half hour. Just down the road from Hala Tree.
+- **Hawaiian Vanilla Company** — Paauilo. (808) 776-1771 if anything changes.

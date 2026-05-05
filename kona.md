@@ -41,7 +41,10 @@
 | ~10:00 AM | Drive to **49 Black Sand Beach** at Mauna Lani (~10 min) — stop at the guard shack for a beach pass |
 | ~12:30 PM | **Shops at Mauna Lani** — browse, lunch or a drink |
 | ~2:30 PM | Back to the resort — pool, beach, decompress |
-| Dinner | At the resort — **Moana** or **Shipwreck Bar** |
+| ~5:00 PM | Leave resort for Kailua-Kona town (~30 min) |
+| ~5:30 PM | Walk **Ali‘i Drive** — Hulihee Palace, Mokuaikaua Church, Kailua Pier, shops; sunset ~6:55 |
+| **7:00 PM** | Dinner at **Kona Brewing Company** — Kailua-Kona pub *(booked — OpenTable conf #383278)* |
+| ~9:00 PM | Drive back to resort (~30 min) |
 
 ---
 
@@ -78,7 +81,7 @@
 | After dark | Stargazing at the Visitor Center |
 | Late | Drive back to resort (~1.5 hrs) |
 
-> 🥶 **Heads up:** Bring warm layers — drops into the 40s at the Visitor Center after dark. Fill up on gas in Hilo before heading up Saddle Road.
+> 🧥 **Heads up:** Bring warm layers — drops into the 40s at the Visitor Center after dark. Fill up on gas in Hilo before heading up Saddle Road.
 
 ---
 
@@ -124,6 +127,7 @@
 ## 📝 Notes & Bookings
 
 ### Confirmed bookings
+- **Kona Brewing Company** — Mon 5/18, 7:00 PM, Kailua-Kona. *OpenTable conf #383278.* No card hold; 5-min grace period; (808) 334-2739. Outdoor lanai seating may be the only option — fine.
 - **Kona Sea Salt** — Tue 5/19, 9:00 AM, Kawaihae. Booked with mineral water soak add-on; out by ~10:30.
 - **Mauna Kea Beach Hotel lū'au** — Tue 5/19, 5:30 PM. Resort is ~30 min north of Rosewood.
 - **Hawaiian Vanilla Company** — Wed 5/20, 10:45 AM, Paauilo. (808) 776-1771 if anything changes.
