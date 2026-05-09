@@ -87,22 +87,25 @@
 
 ## 🌋 Day 5 — Thursday, May 21
 
-### Volcanoes & South Point
+### Spa, South Point & Volcanoes
 
 | Time | Activity |
 |:--|:--|
-| Early | Breakfast at the resort, pool / beach time |
-| ~10:30 AM | Pack layers + snacks; head to the spa |
+| Slow morning | Breakfast at the resort, pool, beach |
+| ~10:50 AM | "Let's wander down to the lobby" |
 | **11:00 AM** | 🤫 **Couples 60-min massage at the resort spa** *(SURPRISE — booked)* |
-| ~12:15 PM | Leave resort for the south side via Hwy 11 |
-| ~1:45 PM | **South Point (Ka Lae)** — southernmost point in the US; cliff jumpers, wind-bent trees (~30 min) |
-| ~2:55 PM | Back on Hwy 11, continue to Volcanoes (~1 hr 15 min) |
-| ~4:10 PM | **Welcome Center** at Kīlauea Military Camp — park store, shirts, maps (closes 4:45) |
-| ~4:45 PM | **Volcano House** for first caldera view |
-| Late PM | **Uēkahuna overlook** (primary eruption viewpoint), then Crater Rim Drive: Kīlauea Overlook, Steaming Bluff, Waldron Ledge |
-| ~6:30 PM | Dinner in Volcano Village — **Kīlauea Lodge** or **Tuk-Tuk Thai** |
-| After dark | Return to Uēkahuna / Kīlauea Overlook for **lava glow** |
-| ~9:00 PM | Begin drive back to resort (~2.5 hrs) |
+| 12:00 PM | Done — back to room, change, grab day bag |
+| 12:30 PM | Leave resort, head south on Hwy 11 |
+| ~1:45 PM | Lunch at **Hana Hou Restaurant** in Na‘alehu — southernmost restaurant in the US |
+| 2:30 PM | Turn onto South Point access road |
+| 2:45 PM | **South Point (Ka Lae)** — southernmost point in the US; cliffs, wind-bent trees |
+| 3:30 PM | Back on Hwy 11, continue to Volcanoes |
+| **4:15 PM** | **Welcome Center** at Kīlauea Military Camp — park store, shirts, maps (closes 4:45) |
+| 4:45 PM | **Volcano House** for first caldera view |
+| 5:15 PM | **Uēkahuna overlook** (primary eruption viewpoint), then Crater Rim Drive: Kīlauea Overlook, Steaming Bluff, Waldron Ledge |
+| 6:30 PM | Dinner in Volcano Village — **Kīlauea Lodge** or **Tuk-Tuk Thai** |
+| 7:45 PM | Return to Uēkahuna for **lava glow** after dark |
+| 8:45 PM | Begin drive back to resort (~2.5 hrs) |
 
 > 🌋 **Kīlauea status:** Episode 45 fountained April 23 (8.5 hours); Episode 46 forecast May 4–7. Our window likely falls between episodes, but the crater still glows at night. Check USGS HVO morning-of.
 
