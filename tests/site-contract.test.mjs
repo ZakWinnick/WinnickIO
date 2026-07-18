@@ -111,3 +111,25 @@ test('stylesheet supports system themes, reduced motion, and responsive layouts'
   assert.match(css, /:focus-visible/);
   assert.match(css, /@media\s*\(max-width:\s*720px\)/);
 });
+
+test('homepage internal anchors and approved external destinations are intact', async () => {
+  const home = await read('index.html');
+  for (const id of [...home.matchAll(/href="#([^"]+)"/g)].map((match) => match[1])) {
+    assert.ok(home.includes(`id="${id}"`), `missing #${id}`);
+  }
+  for (const href of [
+    'https://zakwinnick.com',
+    'https://currentheading.com',
+    'https://norcalevs.org',
+    'https://bayarearivianclub.com',
+  ]) assert.ok(home.includes(`href="${href}"`), href);
+  assert.doesNotMatch(home, /href="[^"]*hawaii/i);
+});
+
+test('feed rendering uses safe DOM APIs and retains its failure fallback', async () => {
+  const js = await read('site.js');
+  assert.match(js, /document\.createElement/);
+  assert.match(js, /\.textContent\s*=/);
+  assert.match(js, /Visit ZakWinnick\.com/);
+  assert.doesNotMatch(js, /\.innerHTML\s*=/);
+});
