@@ -64,3 +64,33 @@ test('connect contains every approved link and Font Awesome icon', async () => {
     'fa-instagram',
   ]) assert.ok(home.includes(value), value);
 });
+
+test('resume contains all approved sections and employer links', async () => {
+  const resume = await read('resume.html');
+  for (const heading of ['Experience', 'Education', 'Skills', 'Certifications', 'Publications']) {
+    assert.match(resume, new RegExp(`<h2[^>]*>${heading}<\\/h2>`));
+  }
+  for (const href of [
+    'https://rangeway.co/',
+    'https://norcalevs.org/',
+    'https://curaihealth.com/',
+    'https://octane.co/',
+    'https://commentsold.com/',
+    'https://sensei.com/',
+    'https://www.castlerockam.com/',
+    'https://geodis.com/',
+  ]) assert.ok(resume.includes(href), href);
+});
+
+test('resume contains every LinkedIn-exported role', async () => {
+  const resume = await read('resume.html');
+  for (const role of [
+    'Chief Executive Officer',
+    'Executive Director',
+    'Information Technology Manager',
+    'Senior Identity Services Engineer',
+    'Information Technology Administrator',
+    'Corporate Information Technology Manager',
+    'Tier II IT Support Analyst',
+  ]) assert.ok(resume.includes(role), role);
+});
