@@ -3,23 +3,185 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Zak Winnick</title>
-    <meta name="description" content="The personal and professional website of Zak Winnick.">
+    <title>Zak Winnick · Technology. Hospitality. People.</title>
+    <meta name="description" content="Zak Winnick is a systems-minded operator and community builder working across technology, hospitality, and electric mobility.">
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f7f5ef">
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#151713">
     <link rel="icon" href="favicon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
     <script type="module" src="site.js"></script>
   </head>
   <body>
     <a class="skip-link" href="#main">Skip to content</a>
-    <header class="site-header"></header>
-    <main id="main">
-      <section id="profile"></section>
-      <section id="career"></section>
-      <section id="now"></section>
-      <section id="elsewhere"></section>
-      <section id="posts"></section>
-      <section id="connect"></section>
+
+    <div class="identity-rail" aria-hidden="true"><span>ZW</span></div>
+
+    <header class="site-header">
+      <a class="wordmark" href="index.html" aria-label="Zak Winnick, home">Zak Winnick</a>
+      <nav class="site-nav" aria-label="Primary navigation">
+        <a href="#profile">Profile</a>
+        <a href="#now">Now</a>
+        <a href="resume.html">Résumé</a>
+        <a href="#elsewhere">Elsewhere</a>
+      </nav>
+    </header>
+
+    <main id="main" class="home-main">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">Operator · Community builder · Technologist</p>
+          <h1 id="hero-title">Technology.<br>Hospitality.<br><span>People.</span></h1>
+          <p class="hero-intro">I’ve spent my career making complex systems work better for the people who depend on them.</p>
+          <a class="text-link hero-link" href="#profile">A little more about me <i class="fa-solid fa-arrow-down" aria-hidden="true"></i></a>
+        </div>
+        <div class="portrait-field">
+          <div class="portrait-marker" aria-hidden="true">01</div>
+          <img src="images/profile-bw.jpg" alt="Zak Winnick outdoors in the desert">
+          <p aria-hidden="true">Systems · Service · Community</p>
+        </div>
+      </section>
+
+      <section id="profile" class="section profile-section" aria-labelledby="profile-title">
+        <div class="section-label"><span>01</span> Profile</div>
+        <div class="profile-copy">
+          <h2 id="profile-title">Who I am</h2>
+          <p class="narrative-lead">I’m a systems-minded operator and community builder who has spent more than two decades working at the intersection of technology, hospitality, and the people who rely on both.</p>
+          <p>I’m drawn to complicated environments, practical solutions, and work that makes someone’s day run a little better.</p>
+        </div>
+      </section>
+
+      <section id="career" class="section career-section" aria-labelledby="career-title">
+        <div class="section-label"><span>02</span> Career</div>
+        <div class="career-copy">
+          <p class="section-kicker">The arc, not the résumé</p>
+          <h2 id="career-title">A career built behind the scenes.</h2>
+          <div class="career-columns">
+            <p>My career has moved through hospitality, logistics, SaaS, fintech, and healthtech—usually in roles responsible for the systems nobody notices until they stop working. Along the way, I’ve led IT operations, identity and access management, security and compliance programs, property technology, and the operational foundations behind growing teams.</p>
+            <p>That experience now informs how I approach infrastructure and community leadership: understand the real operating environment, make the complicated parts dependable, and never lose sight of the person on the other side.</p>
+          </div>
+          <a class="button-link" href="resume.html">View my complete résumé <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+        </div>
+      </section>
+
+      <section id="now" class="section now-section" aria-labelledby="now-title">
+        <div class="section-heading-row">
+          <div class="section-label"><span>03</span> Now</div>
+          <div>
+            <p class="section-kicker">What I’m doing now</p>
+            <h2 id="now-title">Two ways of building better journeys.</h2>
+          </div>
+        </div>
+        <div class="now-grid">
+          <article class="now-card">
+            <div class="now-meta">
+              <span class="now-number">A</span>
+              <p>Premium EV infrastructure</p>
+            </div>
+            <div>
+              <h3>Rangeway</h3>
+              <p class="now-role">Founder &amp; Chief Executive Officer</p>
+              <p>I’m building a hospitality-driven premium EV charging network around reliability, comfort, and the real needs of long-distance drivers.</p>
+            </div>
+            <a href="https://rangeway.co/" target="_blank" rel="noopener noreferrer" aria-label="Visit Rangeway">Visit Rangeway <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+          </article>
+          <article class="now-card">
+            <div class="now-meta">
+              <span class="now-number">B</span>
+              <p>Cross-brand EV community</p>
+            </div>
+            <div>
+              <h3>NorCal EVs</h3>
+              <p class="now-role">Executive Director</p>
+              <p>I help lead Northern California’s cross-brand EV owner community, creating events, education, and connections that make EV ownership more useful and welcoming.</p>
+            </div>
+            <a href="https://norcalevs.org/" target="_blank" rel="noopener noreferrer" aria-label="Visit NorCal EVs">Visit NorCal EVs <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+          </article>
+        </div>
+      </section>
+
+      <section id="elsewhere" class="section elsewhere-section" aria-labelledby="elsewhere-title">
+        <div class="section-heading-row">
+          <div class="section-label"><span>04</span> Elsewhere</div>
+          <div>
+            <p class="section-kicker">Other places I show up</p>
+            <h2 id="elsewhere-title">There’s more than one thread.</h2>
+          </div>
+        </div>
+        <div class="elsewhere-grid">
+          <a href="https://zakwinnick.com" target="_blank" rel="noopener noreferrer">
+            <span class="elsewhere-index">01</span>
+            <h3>ZakWinnick.com</h3>
+            <p>Short posts, photos, and longer stories from whatever has my attention.</p>
+            <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+          </a>
+          <a href="https://currentheading.com" target="_blank" rel="noopener noreferrer">
+            <span class="elsewhere-index">02</span>
+            <h3>Current Heading</h3>
+            <p>My personal brand and home for independent projects.</p>
+            <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+          </a>
+          <a href="https://norcalevs.org" target="_blank" rel="noopener noreferrer">
+            <span class="elsewhere-index">03</span>
+            <h3>NorCal EVs</h3>
+            <p>Northern California’s cross-brand EV community.</p>
+            <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+          </a>
+          <a href="https://bayarearivianclub.com" target="_blank" rel="noopener noreferrer">
+            <span class="elsewhere-index">04</span>
+            <h3>Bay Area Rivian Club</h3>
+            <p>Events, education, and community for Rivian owners around the Bay Area.</p>
+            <i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i>
+          </a>
+        </div>
+      </section>
+
+      <section id="posts" class="section posts-section" aria-labelledby="posts-title">
+        <div class="section-heading-row">
+          <div class="section-label"><span>05</span> Latest</div>
+          <div>
+            <p class="section-kicker">From ZakWinnick.com</p>
+            <h2 id="posts-title">Recently, in my own words.</h2>
+          </div>
+        </div>
+        <div id="feed-grid" class="feed-grid" aria-live="polite" aria-busy="true">
+          <p class="feed-loading">Loading the latest posts…</p>
+        </div>
+      </section>
+
+      <section id="connect" class="section connect-section" aria-labelledby="connect-title">
+        <div class="connect-heading">
+          <div class="section-label"><span>06</span> Connect</div>
+          <p class="section-kicker">Say hello</p>
+          <h2 id="connect-title">The internet is better when it leads to people.</h2>
+        </div>
+        <div class="connect-grid">
+          <a href="mailto:zak@winnick.io">
+            <i class="fa-solid fa-envelope" aria-hidden="true"></i>
+            <span>Email</span>
+          </a>
+          <a href="https://www.linkedin.com/in/zakwinnick" target="_blank" rel="noopener noreferrer">
+            <i class="fa-brands fa-linkedin-in" aria-hidden="true"></i>
+            <span>LinkedIn</span>
+          </a>
+          <a href="https://x.com/ZakWinnick" target="_blank" rel="noopener noreferrer">
+            <i class="fa-brands fa-x-twitter" aria-hidden="true"></i>
+            <span>X</span>
+          </a>
+          <a href="https://instagram.com/zakwinnick" target="_blank" rel="noopener noreferrer">
+            <i class="fa-brands fa-instagram" aria-hidden="true"></i>
+            <span>Instagram</span>
+          </a>
+        </div>
+      </section>
     </main>
-    <footer class="site-footer"></footer>
+
+    <footer class="site-footer">
+      <p>© 2026 Zak Winnick</p>
+      <a href="#main">Back to top <i class="fa-solid fa-arrow-up" aria-hidden="true"></i></a>
+    </footer>
   </body>
 </html>

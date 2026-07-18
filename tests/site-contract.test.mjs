@@ -27,3 +27,40 @@ test('homepage sections follow the approved order', async () => {
   assert.ok(positions.every((position) => position >= 0));
   assert.deepEqual(positions, [...positions].sort((a, b) => a - b));
 });
+
+test('homepage contains the approved identity and no rejected content', async () => {
+  const home = await read('index.html');
+  assert.match(home, /Technology\.<br>\s*Hospitality\.<br>\s*<span[^>]*>People\.<\/span>/);
+  assert.doesNotMatch(home, /Hawai|Big Island|Building places worth stopping/i);
+  assert.doesNotMatch(home, />BARC</);
+});
+
+test('current work gives both roles equal structural weight', async () => {
+  const home = await read('index.html');
+  assert.equal((home.match(/class="now-card/g) ?? []).length, 2);
+  assert.match(home, /Rangeway/);
+  assert.match(home, /NorCal EVs/);
+});
+
+test('elsewhere links use exact naming and order', async () => {
+  const home = await read('index.html');
+  const elsewhere = home.slice(home.indexOf('id="elsewhere"'), home.indexOf('id="posts"'));
+  const names = ['ZakWinnick.com', 'Current Heading', 'NorCal EVs', 'Bay Area Rivian Club'];
+  const positions = names.map((name) => elsewhere.indexOf(name));
+  assert.ok(positions.every((position) => position >= 0));
+  assert.deepEqual(positions, [...positions].sort((a, b) => a - b));
+});
+
+test('connect contains every approved link and Font Awesome icon', async () => {
+  const home = await read('index.html');
+  for (const value of [
+    'mailto:zak@winnick.io',
+    'https://www.linkedin.com/in/zakwinnick',
+    'https://x.com/ZakWinnick',
+    'https://instagram.com/zakwinnick',
+    'fa-envelope',
+    'fa-linkedin-in',
+    'fa-x-twitter',
+    'fa-instagram',
+  ]) assert.ok(home.includes(value), value);
+});
