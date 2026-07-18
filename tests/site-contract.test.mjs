@@ -94,3 +94,20 @@ test('resume contains every LinkedIn-exported role', async () => {
     'Tier II IT Support Analyst',
   ]) assert.ok(resume.includes(role), role);
 });
+
+test('both pages include accessibility fundamentals', async () => {
+  for (const html of await Promise.all([read('index.html'), read('resume.html')])) {
+    assert.match(html, /class="skip-link"/);
+    assert.equal((html.match(/<h1/g) ?? []).length, 1);
+    assert.match(html, /<main[^>]+id="main"/);
+    assert.match(html, /aria-label="Primary navigation"/);
+  }
+});
+
+test('stylesheet supports system themes, reduced motion, and responsive layouts', async () => {
+  const css = await read('styles.css');
+  assert.match(css, /prefers-color-scheme:\s*dark/);
+  assert.match(css, /prefers-reduced-motion:\s*reduce/);
+  assert.match(css, /:focus-visible/);
+  assert.match(css, /@media\s*\(max-width:\s*720px\)/);
+});
