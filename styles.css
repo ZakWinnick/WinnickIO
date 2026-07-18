@@ -1,0 +1,22 @@
+:root {
+  color-scheme: light dark;
+  --background: #f7f5ef;
+  --foreground: #11130f;
+  --accent: #ef5b36;
+  --portrait-field: #263a30;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #151713;
+    --foreground: #f2eee5;
+    --accent: #ff7048;
+    --portrait-field: #29382f;
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--background);
+  color: var(--foreground);
+}
