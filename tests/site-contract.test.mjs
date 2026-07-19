@@ -85,6 +85,13 @@ test('homepage footer contains only dynamic copyright content', async () => {
   assert.doesNotMatch(footer, /Technology\. Hospitality\. People\./);
 });
 
+test('resume footer contains only dynamic copyright content', async () => {
+  const resume = await read('resume.html');
+  const footer = resume.slice(resume.lastIndexOf('<footer'), resume.lastIndexOf('</footer>') + 9);
+  assert.match(footer, /©\s*<span data-copyright-year>2026<\/span>\s*Zak Winnick/);
+  assert.doesNotMatch(footer, /Return home/);
+});
+
 test('connect contains every approved link and Font Awesome icon', async () => {
   const home = await read('index.html');
   for (const value of [
@@ -166,4 +173,37 @@ test('feed rendering uses safe DOM APIs and retains its failure fallback', async
   assert.match(js, /\.textContent\s*=/);
   assert.match(js, /Visit ZakWinnick\.com/);
   assert.doesNotMatch(js, /\.innerHTML\s*=/);
+});
+
+test('feed section links ZakWinnick.com with the approved treatment', async () => {
+  const home = await read('index.html');
+  assert.match(home, /<h2[^>]*>From\s*<a href="https:\/\/zakwinnick\.com\/"[^>]*>ZakWinnick\.com<\/a><\/h2>/);
+  const css = await read('styles.css');
+  assert.match(css, /\.writing-header h2 a[\s\S]*color:\s*var\(--accent\)/);
+  assert.match(css, /text-decoration-style:\s*dashed/);
+});
+
+test('feed images preserve their full natural proportions without letterboxing', async () => {
+  const css = await read('styles.css');
+  for (const selector of ['.feature-post img', '.small-post img']) {
+    const start = css.indexOf(selector);
+    assert.ok(start >= 0, selector);
+    const block = css.slice(start, css.indexOf('}', start));
+    assert.match(block, /width:\s*auto/);
+    assert.match(block, /max-width:\s*100%/);
+    assert.match(block, /height:\s*auto/);
+    assert.doesNotMatch(block, /aspect-ratio|object-fit:\s*cover|background:/);
+  }
+});
+
+test('site script uses safe DOM APIs, asymmetric classes, and dynamic year', async () => {
+  const js = await read('site.js');
+  assert.match(js, /document\.createElement/);
+  assert.match(js, /\.textContent\s*=/);
+  assert.doesNotMatch(js, /\.innerHTML\s*=/);
+  assert.match(js, /feature-post/);
+  assert.match(js, /small-post/);
+  assert.match(js, /data-copyright-year/);
+  assert.match(js, /new Date\(\)\.getFullYear\(\)/);
+  assert.match(js, /Visit ZakWinnick\.com/);
 });
