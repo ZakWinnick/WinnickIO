@@ -89,7 +89,7 @@ test('resume footer contains only dynamic copyright content', async () => {
   const resume = await read('resume.html');
   const footer = resume.slice(resume.lastIndexOf('<footer'), resume.lastIndexOf('</footer>') + 9);
   assert.match(footer, /©\s*<span data-copyright-year>2026<\/span>\s*Zak Winnick/);
-  assert.doesNotMatch(footer, /Return home/);
+  assert.doesNotMatch(footer, /Technology\. Hospitality\. People\.|Return home/);
 });
 
 test('connect contains every approved link and Font Awesome icon', async () => {
@@ -279,11 +279,4 @@ test('resume certifications use exact approved order', async () => {
   const positions = certifications.map((item) => section.indexOf(item));
   assert.ok(positions.every((position) => position >= 0));
   assert.deepEqual(positions, [...positions].sort((a, b) => a - b));
-});
-
-test('resume footer contains only dynamic copyright content', async () => {
-  const resume = await read('resume.html');
-  const footer = resume.slice(resume.indexOf('<footer'), resume.indexOf('</footer>') + 9);
-  assert.match(footer, /©\s*<span data-copyright-year>2026<\/span>\s*Zak Winnick/);
-  assert.doesNotMatch(footer, /Technology\. Hospitality\. People\.|Return home/);
 });
