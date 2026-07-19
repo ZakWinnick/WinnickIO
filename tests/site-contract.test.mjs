@@ -28,27 +28,61 @@ test('homepage sections follow the approved order', async () => {
   assert.deepEqual(positions, [...positions].sort((a, b) => a - b));
 });
 
-test('homepage contains the approved identity and no rejected content', async () => {
+test('homepage uses the approved name-first hero', async () => {
   const home = await read('index.html');
-  assert.match(home, /Technology\.<br>\s*Hospitality\.<br>\s*<span[^>]*>People\.<\/span>/);
-  assert.doesNotMatch(home, /Hawai|Big Island|Building places worth stopping/i);
-  assert.doesNotMatch(home, />BARC</);
+  assert.equal((home.match(/<h1/g) ?? []).length, 1);
+  assert.match(home, /<h1[^>]*>Zak Winnick<\/h1>/);
+  assert.match(home, /class="tagline"[^>]*>Technology\. Hospitality\. People\.<\/p>/);
+  assert.match(home, /images\/profile-bw\.jpg/);
+  assert.doesNotMatch(home, /<h1[^>]*>Technology\./);
+  assert.doesNotMatch(home, /portrait-marker|Systems · Service · Community/);
 });
 
-test('current work gives both roles equal structural weight', async () => {
+test('homepage reads as an authored page rather than numbered modules', async () => {
   const home = await read('index.html');
-  assert.equal((home.match(/class="now-card/g) ?? []).length, 2);
-  assert.match(home, /Rangeway/);
-  assert.match(home, /NorCal EVs/);
+  for (const heading of ['Profile', 'Career', 'Right now', 'Other places you’ll find me']) {
+    assert.ok(home.includes(heading), heading);
+  }
+  assert.doesNotMatch(home, /class="section-label"/);
+  assert.doesNotMatch(home, /class="career-path"/);
+  assert.doesNotMatch(home, /Two ways of building better journeys|There’s more than one thread/);
 });
 
-test('elsewhere links use exact naming and order', async () => {
+test('current roles use exact approved hierarchy and copy', async () => {
+  const home = await read('index.html');
+  assert.equal((home.match(/class="role"/g) ?? []).length, 2);
+  assert.match(home, /Building the places/);
+  assert.match(home, /Founder &amp; Chief Executive Officer/);
+  assert.match(home, /Bringing together the people/);
+  assert.match(home, /Executive Director/);
+  assert.match(home, /community for EV owners across every brand/);
+  assert.ok(home.includes('https://rangeway.co/'));
+  assert.ok(home.includes('https://norcalevs.org/'));
+});
+
+test('elsewhere uses approved prose, order, and role hierarchy', async () => {
   const home = await read('index.html');
   const elsewhere = home.slice(home.indexOf('id="elsewhere"'), home.indexOf('id="posts"'));
   const names = ['ZakWinnick.com', 'Current Heading', 'NorCal EVs', 'Bay Area Rivian Club'];
   const positions = names.map((name) => elsewhere.indexOf(name));
   assert.ok(positions.every((position) => position >= 0));
   assert.deepEqual(positions, [...positions].sort((a, b) => a - b));
+  assert.match(elsewhere, /I serve as Executive Director of/);
+  assert.match(elsewhere, /I also serve on the board of the/);
+  assert.match(elsewhere, /drives, meetups, hands-on learning, and service projects/);
+  for (const href of [
+    'https://zakwinnick.com',
+    'https://currentheading.com',
+    'https://norcalevs.org',
+    'https://bayarearivianclub.com',
+  ]) assert.ok(elsewhere.includes(href), href);
+});
+
+test('homepage footer contains only dynamic copyright content', async () => {
+  const home = await read('index.html');
+  const footer = home.slice(home.indexOf('<footer'), home.indexOf('</footer>') + 9);
+  assert.match(footer, /©\s*<span data-copyright-year>2026<\/span>\s*Zak Winnick/);
+  assert.doesNotMatch(footer, /Technology\. Hospitality\. People\./);
 });
 
 test('connect contains every approved link and Font Awesome icon', async () => {
