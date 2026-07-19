@@ -27,15 +27,15 @@ test('fetches only the requested number of newest posts', async () => {
   const fetchImpl = async () => ({
     ok: true,
     json: async () => ({ items: [
-      { url: '/1', title: 'One', content_html: '', date_published: '2026-03-01' },
-      { url: '/2', title: 'Two', content_html: '', date_published: '2026-02-01' },
       { url: '/3', title: 'Three', content_html: '', date_published: '2026-01-01' },
       { url: '/4', title: 'Four', content_html: '', date_published: '2025-12-01' },
+      { url: '/1', title: 'One', content_html: '', date_published: '2026-03-01' },
+      { url: '/2', title: 'Two', content_html: '', date_published: '2026-02-01' },
     ] }),
   });
   const posts = await fetchLatestPosts(fetchImpl, 3);
   assert.equal(posts.length, 3);
-  assert.equal(posts[0].title, 'One');
+  assert.deepEqual(posts.map(({ title }) => title), ['One', 'Two', 'Three']);
 });
 
 test('rejects failed feed responses', async () => {

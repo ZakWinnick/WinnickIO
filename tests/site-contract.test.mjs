@@ -136,15 +136,6 @@ test('resume contains every LinkedIn-exported role', async () => {
   ]) assert.ok(resume.includes(role), role);
 });
 
-test('both pages include accessibility fundamentals', async () => {
-  for (const html of await Promise.all([read('index.html'), read('resume.html')])) {
-    assert.match(html, /class="skip-link"/);
-    assert.equal((html.match(/<h1/g) ?? []).length, 1);
-    assert.match(html, /<main[^>]+id="main"/);
-    assert.match(html, /aria-label="Primary navigation"/);
-  }
-});
-
 test('both pages retain accessibility fundamentals', async () => {
   for (const html of await Promise.all([read('index.html'), read('resume.html')])) {
     assert.match(html, /class="skip-link"/);
@@ -155,19 +146,11 @@ test('both pages retain accessibility fundamentals', async () => {
   }
 });
 
-test('stylesheet contains approved themes and responsive collapse', async () => {
+test('stylesheet contains approved themes and accessibility support', async () => {
   const css = await read('styles.css');
   for (const value of ['#f7f5ef', '#1f211d', '#62645c', '#ef5b36', '#23231f', '#292925', '#f1ede4', '#bcb8ae', '#ff7048']) {
     assert.ok(css.includes(value), value);
   }
-  assert.match(css, /prefers-color-scheme:\s*dark/);
-  assert.match(css, /prefers-reduced-motion:\s*reduce/);
-  assert.match(css, /:focus-visible/);
-  assert.match(css, /@media\s*\(max-width:\s*820px\)/);
-});
-
-test('stylesheet supports system themes, reduced motion, and responsive layouts', async () => {
-  const css = await read('styles.css');
   assert.match(css, /prefers-color-scheme:\s*dark/);
   assert.match(css, /prefers-reduced-motion:\s*reduce/);
   assert.match(css, /:focus-visible/);
@@ -200,8 +183,51 @@ test('feed section links ZakWinnick.com with the approved treatment', async () =
   const home = await read('index.html');
   assert.match(home, /<h2[^>]*>From\s*<a href="https:\/\/zakwinnick\.com\/"[^>]*>ZakWinnick\.com<\/a><\/h2>/);
   const css = await read('styles.css');
-  assert.match(css, /\.writing-header h2 a[\s\S]*color:\s*var\(--accent\)/);
+  assert.match(css, /\.writing-header h2 a[\s\S]*color:\s*var\(--accent-text\)/);
   assert.match(css, /text-decoration-style:\s*dashed/);
+});
+
+function contrastRatio(foreground, background) {
+  const luminance = (hex) => {
+    const channels = hex.match(/[a-f\d]{2}/gi).map((value) => parseInt(value, 16) / 255);
+    const [red, green, blue] = channels.map((channel) => (
+      channel <= 0.04045 ? channel / 12.92 : ((channel + 0.055) / 1.055) ** 2.4
+    ));
+    return (0.2126 * red) + (0.7152 * green) + (0.0722 * blue);
+  };
+  const [lighter, darker] = [luminance(foreground), luminance(background)].sort((a, b) => b - a);
+  return (lighter + 0.05) / (darker + 0.05);
+}
+
+test('light-theme text and focus orange meets AA contrast on both light surfaces', async () => {
+  const css = await read('styles.css');
+  const accentText = css.match(/--accent-text:\s*(#[a-f\d]{6})/i)?.[1];
+  assert.ok(accentText, 'light-theme accessible orange token is defined');
+  for (const background of ['#f7f5ef', '#ffffff']) {
+    assert.ok(contrastRatio(accentText, background) >= 4.5, `${accentText} on ${background}`);
+  }
+  for (const selector of [
+    'a:hover {',
+    '.site-nav a[aria-current="page"] {',
+    '.text-link {',
+    '.role-title {',
+    '.elsewhere-copy a',
+    '.writing-header h2 a {',
+    '.resume-summary > a {',
+    '.role h3 a',
+  ]) {
+    const start = css.indexOf(selector);
+    const block = css.slice(start, css.indexOf('}', start));
+    assert.match(block, /var\(--accent-text\)/, selector);
+  }
+  assert.match(css, /:focus-visible[\s\S]*outline:\s*2px solid var\(--accent-text\)/);
+});
+
+test('both pages use approved browser chrome and fonts', async () => {
+  for (const html of await Promise.all([read('index.html'), read('resume.html')])) {
+    assert.match(html, /media="\(prefers-color-scheme: dark\)" content="#23231f"/);
+    assert.doesNotMatch(html, /Archivo\+Black/);
+  }
 });
 
 test('feed images preserve their full natural proportions without letterboxing', async () => {
@@ -227,6 +253,42 @@ test('site script uses safe DOM APIs, asymmetric classes, and dynamic year', asy
   assert.match(js, /data-copyright-year/);
   assert.match(js, /new Date\(\)\.getFullYear\(\)/);
   assert.match(js, /Visit ZakWinnick\.com/);
+});
+
+function createDocumentMock() {
+  return {
+    querySelector: () => null,
+    querySelectorAll: () => [],
+    createElement(tagName) {
+      return {
+        tagName,
+        children: [],
+        append(...children) {
+          this.children.push(...children);
+        },
+      };
+    },
+  };
+}
+
+test('feed renderer skips absent, blank, and unsafe URL values without broken cards or images', async () => {
+  const previousDocument = globalThis.document;
+  globalThis.document = createDocumentMock();
+  try {
+    const { createPost } = await import(new URL(`../site.js?renderer-test=${Date.now()}`, import.meta.url));
+    assert.equal(createPost({ title: 'Missing URL' }, 0), null);
+    assert.equal(createPost({ title: 'Blank URL', url: '   ' }, 0), null);
+    assert.equal(createPost({ title: 'Unsafe URL', url: 'javascript:alert(1)' }, 0), null);
+
+    const withoutImage = createPost({ title: 'No image', url: '/no-image' }, 0);
+    assert.equal(withoutImage.href, 'https://zakwinnick.com/no-image');
+    assert.equal(withoutImage.children.some(({ tagName }) => tagName === 'img'), false);
+
+    const whitespaceImage = createPost({ title: 'Blank image', url: '/blank-image', image: '  ' }, 1);
+    assert.equal(whitespaceImage.children.some(({ tagName }) => tagName === 'img'), false);
+  } finally {
+    globalThis.document = previousDocument;
+  }
 });
 
 test('resume includes approved property, education, and publication links', async () => {

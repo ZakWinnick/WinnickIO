@@ -1,8 +1,9 @@
 import { fetchLatestPosts } from './feed.js';
 
-const feedGrid = document.querySelector('#feed-grid');
+const feedGrid = typeof document === 'undefined' ? null : document.querySelector('#feed-grid');
 
-function safeUrl(value, base = 'https://zakwinnick.com/') {
+export function safeUrl(value, base = 'https://zakwinnick.com/') {
+  if (typeof value !== 'string' || !value.trim()) return null;
   try {
     const url = new URL(value, base);
     return ['http:', 'https:'].includes(url.protocol) ? url.href : null;
@@ -37,7 +38,7 @@ function appendPostDate(container, post) {
   container.append(time);
 }
 
-function createPost(post, index) {
+export function createPost(post, index) {
   const postUrl = safeUrl(post.url);
   if (!postUrl) return null;
 
@@ -93,8 +94,10 @@ async function loadFeed() {
   }
 }
 
-for (const year of document.querySelectorAll('[data-copyright-year]')) {
-  year.textContent = String(new Date().getFullYear());
-}
+if (typeof document !== 'undefined') {
+  for (const year of document.querySelectorAll('[data-copyright-year]')) {
+    year.textContent = String(new Date().getFullYear());
+  }
 
-loadFeed();
+  loadFeed();
+}
