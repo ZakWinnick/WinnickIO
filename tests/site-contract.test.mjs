@@ -207,3 +207,62 @@ test('site script uses safe DOM APIs, asymmetric classes, and dynamic year', asy
   assert.match(js, /new Date\(\)\.getFullYear\(\)/);
   assert.match(js, /Visit ZakWinnick\.com/);
 });
+
+test('resume includes approved property, education, and publication links', async () => {
+  const resume = await read('resume.html');
+  for (const href of [
+    'https://westinnashville.com',
+    'https://www.opalcollection.com/nashville/',
+    'https://canyons.edu',
+    'https://www.voxer.com/assets/images/Westin-Case-Study.pdf',
+    'https://podcast.rivianclubs.org',
+    'https://podcast.rangeway.co',
+  ]) assert.ok(resume.includes(href), href);
+  assert.match(resume, /The Bobby Hotel \(now The Nash\)/);
+});
+
+test('resume skills use the exact approved alphabetical order', async () => {
+  const resume = await read('resume.html');
+  const skills = [
+    'Community &amp; Nonprofit Leadership',
+    'Device Lifecycle Management',
+    'EV Charging Infrastructure',
+    'Event &amp; Program Development',
+    'Identity &amp; Access Management',
+    'IT Operations',
+    'Network &amp; Property Technology',
+    'Operational Leadership',
+    'SaaS Administration',
+    'Security &amp; Compliance',
+    'Site Development &amp; Utility Coordination',
+    'Systems Integration',
+    'Vendor &amp; Partner Management',
+    'Workflow Automation',
+  ];
+  const skillSection = resume.slice(resume.indexOf('id="skills-title"'), resume.indexOf('id="certifications-title"'));
+  const positions = skills.map((skill) => skillSection.indexOf(skill));
+  assert.ok(positions.every((position) => position >= 0));
+  assert.deepEqual(positions, [...positions].sort((a, b) => a - b));
+});
+
+test('resume certifications use exact approved order', async () => {
+  const resume = await read('resume.html');
+  const certifications = [
+    'Creating EV Charging Hubs: Innovative Design',
+    'FastTrack EV Charging Certification',
+    'Master Electric Vehicle Tech: Software Skills',
+    'Plug Into The Future — EV Charging Essentials',
+    'Fora Certified Travel Advisor',
+  ];
+  const section = resume.slice(resume.indexOf('id="certifications-title"'), resume.indexOf('id="publications-title"'));
+  const positions = certifications.map((item) => section.indexOf(item));
+  assert.ok(positions.every((position) => position >= 0));
+  assert.deepEqual(positions, [...positions].sort((a, b) => a - b));
+});
+
+test('resume footer contains only dynamic copyright content', async () => {
+  const resume = await read('resume.html');
+  const footer = resume.slice(resume.indexOf('<footer'), resume.indexOf('</footer>') + 9);
+  assert.match(footer, /©\s*<span data-copyright-year>2026<\/span>\s*Zak Winnick/);
+  assert.doesNotMatch(footer, /Technology\. Hospitality\. People\.|Return home/);
+});
